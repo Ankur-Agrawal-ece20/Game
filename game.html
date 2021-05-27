@@ -1,0 +1,522 @@
+<html>
+<head>
+<title>Stone-Paper-Scissors</title>
+<!-- <link href="/css/style1.css" rel="stylesheet" type="text/css"> -->
+<meta name="viewport" content="width=fixed, initial-scale=1.0">
+<style>
+    body {
+	background-image: url('https://miro.medium.com/max/1000/1*FEcr9_owB5KplrClDpRenA.png');
+}
+h1 {
+    font-size: 50px;
+    line-height: 50px;
+    color: white;
+    background-color: purple;
+    text-shadow: px 1px ;
+    border-top: dashed;
+    border-bottom: dashed;
+    font-family: monospace;
+    text-align: center;
+    margin-bottom: 0px;    
+}
+
+#musicbar{
+  text-align: center;
+  margin:auto;
+  font-size: large;
+}
+#rules{
+    
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    background-color: blue;
+    border: solid;
+    border-color: white;
+    /* border: 15px; */
+    opacity: 0.8;
+    margin: auto;
+    margin-top: 30px;
+    width: fit-content;
+}
+#R{
+    color: snow;
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+    border-bottom: solid;
+}
+#points{
+    color: cornsilk;
+    font-size: large;
+}
+#con{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#musicbar{
+  display: none;
+}
+#start{
+    background-color: greenyellow;
+    width: 500px;
+    height: 40px;
+    margin: 0, auto;
+    font-size: 150%;
+    border: double;
+}
+#commentbox{
+  margin-top: 1%;
+  background-color:darkslateblue; 
+  width:100%; 
+  height: fit-content;
+  border: double;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#commentbox h3{ 
+  margin: 1%;
+  color: antiquewhite;
+  font-size: larger;
+}
+#comment{
+  margin: 1%;
+  text-align: center;
+  font-size: large; 
+  color: beige;  
+  font-size : 100%;
+}
+#mainbox{
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: blue;
+  border: solid;
+  border-color: white;
+  width: 60%;
+  align-items: center;
+  grid-template-columns: 1fr 1fr ;
+  opacity: 0.8;
+  margin: 3% auto;
+}
+#Uscore{
+  background-color:red;
+  border: solid;
+  border-color: black;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  margin-top: 1vw;
+  padding: 0px;
+  height: 116px;
+}
+#Uscore a{
+  font-size: larger;
+  border-bottom: solid;
+}
+#Cscore{
+  background-color:red;
+  border: solid;
+  border-color: black;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  height: 116px;
+  margin-top: 1vw;
+  padding: 0px;
+}
+#Cscore a{
+  font-size: larger;
+  border-bottom: solid;
+}
+#chance{
+  width: 100%;
+  margin-right: auto;
+}
+#yourturn{
+  grid-column: 1/span 4;
+}
+#choicebuttons{
+  grid-column: 1/span 3;
+}
+#Cchoice{
+  margin-left: 1vw;
+  color: white;
+  font-size: 30px;
+}
+#compturn{
+  grid-column: 1/span 4;
+}
+#choicebuttons button{
+  color: black;
+  text-shadow: 2px 2px black;
+  background-size:95%;
+  padding: 5;
+  font-size: 40;
+  display: inline;
+  margin-left: 1vw; 
+  border-radius: 13px; 
+  transition-delay: 1s;
+}
+#choicebuttons button:hover {
+background-image: url('https://previews.123rf.com/images/sudowoodo/sudowoodo1710/sudowoodo171000028/88077066-hand-gestures-for-rock-paper-scissors-game-simple-hand-icons-.jpg');
+} 
+#U{
+  font-size: 55px;
+}
+#C{
+  font-size: 55px;
+}
+@media screen and (max-width: 750px) {
+  #choicebuttons button{
+    text-shadow: 0.5px 0.5px black;
+    padding: 4;
+    font-size: 31;
+    margin-left: 1vw; 
+  }
+}
+@media screen and (max-width: 601px) {
+  #choicebuttons button{
+    padding: 3;
+    font-size: 30;
+    margin-left: 1vw; 
+  }
+  h1 {
+    font-size: 35px;
+    line-height: 40px;
+  }
+  #R{
+    font-size: 25px;
+  }
+  #points{
+    font-size: medium;
+  }
+  #mainbox{
+    grid-template-columns: 0.5fr 0.5fr;
+    width: 70%;
+  }
+}
+@media screen and (max-width: 480px){
+  #Cscore a{
+    font-size: 16;
+  }
+  #Uscore a{
+    font-size: 16;
+  }   
+  #choicebuttons button{
+    padding: 2;
+    font-size: 22;
+    margin-left: 1vw; 
+  }
+  #mainbox{
+    grid-template-columns: 150px 150px;
+  }
+}
+@media screen and (max-width: 460px) {
+  h1 {
+    font-size: 8vw;
+    line-height: 8vw;
+  }
+  #R{
+    font-size: 20px;
+  }
+  #points{
+    font-size: small;
+  }
+  #start{
+    font-size: small;
+    width: 300px;
+    height: 30px;
+  }
+  #commentbox h3{
+    font-size: large;
+  }
+  #comment{
+    font-size: medium;
+  }
+  #mainbox{
+    grid-template-columns: 130px 130px 0px;
+  }
+}
+@media screen and (max-width: 390px) {
+  #U{
+    font-size: 25px;
+  }
+  #C{
+    font-size: 25px;
+  }
+  #Cscore a{
+    font-size: larger;
+  }
+  #Uscore a{
+    font-size: larger;
+  }  
+  #choicebuttons button{
+    padding: 3;
+    font-size: 19;
+    margin-left: 0.5vw; 
+  }
+  #mainbox{
+    grid-template-columns: 100px 100px;
+  }
+  #Cscore{
+    height: 50px;
+    grid-column: 1/span 4;
+  }
+  #Uscore{
+    grid-column: 1/span 4;
+    height: 50px;
+  }
+}
+@media screen and (max-width: 319px) {
+  #choicebuttons button{
+    padding: 2;
+    font-size: 14;
+    margin-left: 1vw; 
+  }
+  #mainbox{
+    grid-template-columns: 35%;
+  }
+  #commentbox{
+    display: block;
+  }
+  #comment{
+    text-align: left;
+  }
+  
+  #U{
+    width: auto
+  }
+  #C{
+    width: auto
+  }
+  #Cscore a{
+    width:100%;
+  }
+  #Uscore a{
+    width: 100%;
+  }
+  
+}
+#start:hover{
+  background-color: chartreuse;
+}
+</style>
+</head>
+<body>
+<h1 >Stone-Paper-Scissors</h1>
+<div id="musicbar">
+    <audio src="https://pwdown.com/14597/Spectre%20Edm%20Ringtone.mp3" autoplay loop></audio>.
+</div>
+
+<div id = "rules">
+    <h2 id="R">Rules</h2>
+    <!-- <hr > -->
+    <ul id="points"> 
+        <li>Game will continue until anyone scores 10 points.</li>
+        <li>You will play against computer and have to respond first.</li>
+        <li>The computer responds instantly as soon as you click so do not feel cheated anyway.</li>
+        <li>You will find three buttons representing rock, paper and scissors respectively, so to start just click on anyone and enjoy.</li>
+        <li>Note: Points are not given to anyone if both chose same and other rules are as usual.</li>
+    </ul>
+</div>
+<br>
+<div id="con" onclick="startnow()">
+    <button id="start">Start Game</button>
+</div>
+
+<div  id ="commentbox">
+    <h3 >Comment:</h3>
+    <p id ="comment" >Don't forget to read all the rules.</p>
+</div>
+
+<div id="mainbox">
+
+    <span id ="Uscore" >
+        <a> Your Score</a>
+        <div id="U">0</div>
+    </span>
+
+    <span id = "Cscore" >
+        <a> Computer's Score</a>
+        <div id ="C" >0</div>
+    </span>
+    <!-- <br> -->
+    <!-- <span id="chance"> -->
+        <h3 id="yourturn" style="background-color: goldenrod;">Your Turn:</h3>
+        <span id="choicebuttons">
+            <button id="a" onclick="stone()" style="background-color:hotpink;">Stone</button>
+            <button id="b" onclick="paper()" style="background-color:#0ff135;">Paper</button>
+            <button id="c" onclick="scissors()" style="background-color:deepskyblue;">Scissors</button>
+        </span>
+        <h3 id="compturn" style="background-color: goldenrod;">Computer's Turn:</h3>
+        <div id="Cchoice">WAITING....</div>
+    <!-- </span> -->
+</div>
+    
+  
+    
+    
+   <script> 
+   function startnow(){
+        console.log('clicked')
+        let name = prompt("What's your name?", "Guest");
+        let T = document.getElementById("rules");
+        T.style.display = "none";
+        T = document.getElementById("start");
+        T.style.display = "none";
+        T = document.getElementById("mainbox");
+        T.style.display = "grid";
+   }
+    //    alert("It is recommended to use brower in maximized form.")
+       let name = "abc" //prompt("What's your name?", "Guest");
+       let yourscore = 0;
+       let compscore = 0;
+    function stone(){
+        let a = document.getElementById('a')
+        let U = document.getElementById('U')
+        let C = document.getElementById('C')
+        var x = Math.floor((Math.random() * 3) + 1);
+        console.log('clicked')
+        console.log(x)
+        if(x==1){
+            document.getElementById("Cchoice").innerHTML = ' STONE';
+            document.getElementById("comment").innerHTML = "Both chose same. :|";
+        }
+        if(x==2){
+            document.getElementById("Cchoice").innerHTML = 'PAPER';
+            compscore=compscore+1;
+            document.getElementById("C").innerHTML = compscore;
+            if(compscore<=5){
+               document.getElementById("comment").innerHTML = "Try again!!! It's not too late."; 
+            }
+            else if(compscore<10){
+                document.getElementById("comment").innerHTML = "Be clam. And think before next move.";
+            }
+            else{
+               yourscore=0;
+                compscore=0;
+                document.getElementById("C").innerHTML = compscore;
+                document.getElementById("U").innerHTML = yourscore;
+                document.getElementById("comment").innerHTML = "YOU LOSE "+name+"!!!TRY GAIN :(";
+            }
+        }
+        if(x==3){
+            document.getElementById("Cchoice").innerHTML = ' SCISSORS';
+            yourscore=yourscore+1;
+            document.getElementById("U").innerHTML = yourscore;
+            if(yourscore<=5){
+               document.getElementById("comment").innerHTML = "GOOD!!! Keep it up!"; 
+            }
+            else if(yourscore<10){
+                document.getElementById("comment").innerHTML = "EXCELLENT!!! You will definitely win. :)";
+            }
+            else{
+               yourscore=0;
+                compscore=0;
+                document.getElementById("C").innerHTML = compscore;
+                document.getElementById("U").innerHTML = yourscore;
+                document.getElementById("comment").innerHTML = "CONGRATS YOU WON!!! PLAY GAIN :)";
+            }
+        }
+    }
+       function paper(){
+        let a = document.getElementById('b')
+        let U = document.getElementById('U')
+        let C = document.getElementById('C')
+        var x = Math.floor((Math.random() * 3) + 1);
+        console.log('clicked')
+        console.log(x)
+        if(x==2){
+            document.getElementById("Cchoice").innerHTML = ' PAPER';
+            document.getElementById("comment").innerHTML = "Both chose same. :|";
+        }
+        if(x==3){
+            document.getElementById("Cchoice").innerHTML = ' SCISSORS';
+            compscore=compscore+1;
+            document.getElementById("C").innerHTML = compscore;
+            if(compscore<=5){
+               document.getElementById("comment").innerHTML = "Try again!!! It's not too late."; 
+            }
+            else if(compscore<10){
+                document.getElementById("comment").innerHTML = "Be clam. And think before next move.";
+            }
+            else{
+               yourscore=0;
+                compscore=0;
+                document.getElementById("C").innerHTML = compscore;
+                document.getElementById("U").innerHTML = yourscore;
+                document.getElementById("comment").innerHTML = "YOU LOSE!!! TRY GAIN :(";
+            }
+        }
+        if(x==1){
+            document.getElementById("Cchoice").innerHTML = 'STONE';
+            yourscore=yourscore+1;
+            document.getElementById("U").innerHTML = yourscore;
+            if(yourscore<=5){
+               document.getElementById("comment").innerHTML = "GOOD!!! Keep it up!"; 
+            }
+            else if(yourscore<10){
+                document.getElementById("comment").innerHTML = "EXCELLENT!!! You will definitely win. :)";
+            }
+            else{
+               yourscore=0;
+                compscore=0;
+                document.getElementById("C").innerHTML = compscore;
+                document.getElementById("U").innerHTML = yourscore;
+                document.getElementById("comment").innerHTML = "CONGRATS YOU WON!!! PLAY GAIN :)";
+            }
+        }
+           
+    }
+       function scissors(){
+        let a = document.getElementById('c')
+        let U = document.getElementById('U')
+        let C = document.getElementById('C')
+        var x = Math.floor((Math.random() * 3) + 1);
+        console.log('clicked')
+        console.log(x)
+        if(x==3){
+            document.getElementById("Cchoice").innerHTML = ' SCISSORS';
+            document.getElementById("comment").innerHTML = "Both chose same. :|";
+        }
+        if(x==1){
+            document.getElementById("Cchoice").innerHTML = 'STONE';
+            compscore=compscore+1;
+            document.getElementById("C").innerHTML = compscore;
+            if(compscore<=5){
+               document.getElementById("comment").innerHTML = "Try again!!! It's not too late."; 
+            }
+            else if(compscore<10){
+                document.getElementById("comment").innerHTML = "Be clam. And think before next move.";
+            }
+            else{
+               yourscore=0;
+                compscore=0;
+                document.getElementById("C").innerHTML = compscore;
+                document.getElementById("U").innerHTML = yourscore;
+                document.getElementById("comment").innerHTML = "YOU LOSE!!! TRY GAIN :(";
+            }
+        }
+        if(x==2){
+            document.getElementById("Cchoice").innerHTML = 'PAPER';
+            yourscore=yourscore+1;
+            document.getElementById("U").innerHTML = yourscore;
+            if(yourscore<=5){
+               document.getElementById("comment").innerHTML = "GOOD!!! Keep it up!"; 
+            }
+            else if(yourscore<10){
+                document.getElementById("comment").innerHTML = "EXCELLENT!!! You will definitely win. :)";
+            }
+            else{
+               yourscore=0;
+                compscore=0;
+                document.getElementById("C").innerHTML = compscore;
+                document.getElementById("U").innerHTML = yourscore;
+                document.getElementById("comment").innerHTML = "CONGRATS YOU WON!!! PLAY GAIN :)";
+            }
+        }
+    }
+</script>
+</body>
+</html>
